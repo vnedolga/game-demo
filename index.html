@@ -1,44 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Demo</title>
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: #000;
-  }
-  canvas {
-    display: block;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>Сила впливу — веб-демо</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<canvas id="gameCanvas"></canvas>
-<script>
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  <canvas id="game"></canvas>
 
-let player = { x: canvas.width/2, y: canvas.height/2, size: 30, color: 'cyan' };
+  <!-- HUD -->
+  <div id="hud">
+    <div class="topbar">
+      <div class="pill"><span id="hp">HP: 100</span></div>
+      <div class="pill"><span id="wave">WAVE 1</span></div>
+      <div class="pill"><span id="goal">Ціль: прорив</span></div>
+    </div>
 
-function drawPlayer() {
-  ctx.fillStyle = player.color;
-  ctx.beginPath();
-  ctx.arc(player.x, player.y, player.size, 0, Math.PI*2);
-  ctx.fill();
-}
+    <div id="controls">
+      <div id="stickArea"><div id="stick"></div></div>
+      <div id="buttons">
+        <button id="btnClaw" aria-label="Claw">Кігті</button>
+        <button id="btnLaser" aria-label="Laser">Лазер</button>
+        <button id="btnLRAD" aria-label="LRAD">LRAD</button>
+      </div>
+    </div>
+  </div>
 
-function gameLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawPlayer();
-  requestAnimationFrame(gameLoop);
-}
-
-gameLoop();
-</script>
+  <script src="main.js"></script>
 </body>
 </html>
