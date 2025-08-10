@@ -1,0 +1,17 @@
+:root { --bg:#0b0b0d; --panel:rgba(0,0,0,.45); --border:rgba(255,255,255,.08); --red:#ff3a3a; --text:#e9e9e9; }
+*{box-sizing:border-box} html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
+#game{position:fixed;inset:0;width:100vw;height:100vh;background:radial-gradient(ellipse at 60% 40%, #2a1414, #070707 60%)}
+
+#hud{position:fixed;inset:0;pointer-events:none}
+.topbar{display:flex;gap:8px;justify-content:flex-start;padding:10px 14px}
+.pill{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-weight:700;backdrop-filter:blur(2px)}
+
+#controls{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:flex-end;pointer-events:auto}
+#stickArea{width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);position:relative;touch-action:none}
+#stick{width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.18);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+
+#buttons{display:flex;gap:12px}
+#buttons button{width:105px;height:105px;border-radius:22px;border:1px solid var(--border);background:#141416;color:#fff;font-weight:800;
+  box-shadow:0 0 0 1px rgba(255,0,0,.12) inset, 0 10px 30px rgba(255,0,0,.18)}
+#buttons button:active{transform:scale(.98)}
+@media(min-width:900px){#stickArea{width:200px;height:200px} #stick{width:90px;height:90px} #buttons button{width:118px;height:118px}}
